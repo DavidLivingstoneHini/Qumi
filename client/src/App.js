@@ -42,9 +42,8 @@ function App() {
               path="/profile/:userId"
               element={isAuth ? <ProfilePage /> : <Navigate to="/" />}
             />
-          <Route path='/responses/employee/create' 
-          element={isAuth ? <EmpCreate /> : <Navigate to="/" />} />
-
+          <Route path='/responses/employee/create' element={<EmpCreate />}></Route>
+          
           <Route path='/responses/employee/detail/:empid'
           element={isAuth ? <EmpDetail /> : <Navigate to="/" />} />
           <Route path='/responses/employee/edit/:empid'
