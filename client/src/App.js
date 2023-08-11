@@ -45,11 +45,12 @@ function App() {
               element={isAuth ? <ProfilePage /> : <Navigate to="/" />}
             />
           <Route path='/responses/employee/create' element={<EmpCreate />}></Route>
-
-          <Route path='/responses/employee/detail/:empid'
+          <Route path='/responses/employee/detail/:empid' element={<EmpDetail />}></Route>
+          <Route path='/responses/employee/edit/:empid' element={<EmpEdit />}></Route>
+          {/* <Route path='/responses/employee/detail/:empid'
           element={isAuth ? <EmpDetail /> : <Navigate to="/" />} />
           <Route path='/responses/employee/edit/:empid'
-          element={isAuth ? <EmpEdit /> : <Navigate to="/" />} />
+          element={isAuth ? <EmpEdit /> : <Navigate to="/" />} /> */}
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

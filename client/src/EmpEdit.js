@@ -35,7 +35,7 @@ const EmpEdit = () => {
       const empdata={id,name,email,phone,active};
       
 
-      fetch("http://localhost:3000/employee/"+empid,{
+      fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee/"+empid,{
         method:"PUT",
         headers:{"content-type":"application/json"},
         body:JSON.stringify(empdata)

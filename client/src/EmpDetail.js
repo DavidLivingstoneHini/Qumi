@@ -3,11 +3,11 @@ import { Link, useParams } from "react-router-dom";
 
 const EmpDetail = () => {
     const { empid } = useParams();
-
     const [empdata, empdatachange] = useState({});
-
+    
+// use http://localhost:3000/employee/ if https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee stops working
     useEffect(() => {
-        fetch("http://localhost:3000/employee/" + empid).then((res) => {
+        fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee/" + empid).then((res) => {
             return res.json();
         }).then((resp) => {
             empdatachange(resp);
