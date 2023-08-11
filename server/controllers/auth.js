@@ -7,13 +7,14 @@ export const register = async (req, res) => {
   try {
     const {
       firstName,
-      lastName,
+      contact,
       email,
       password,
       picturePath,
       friends,
       location,
-      occupation,
+      uid,
+      site,
     } = req.body;
 
     const salt = await bcrypt.genSalt();
@@ -21,13 +22,14 @@ export const register = async (req, res) => {
 
     const newUser = new User({
       firstName,
-      lastName,
+      contact,
       email,
       password: passwordHash,
       picturePath,
       friends,
       location,
-      occupation,
+      uid,
+      site,
       viewedProfile: Math.floor(Math.random() * 10000),
       impressions: Math.floor(Math.random() * 10000),
     });

@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
 // import { useSelector } from "react-redux";
+import "styles.css";
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "scenes/navbar";
-import Navtab from "scenes/navtab";
 
 
 const HomePage = () => {
@@ -11,7 +12,6 @@ const HomePage = () => {
   return (
     <Box>
       <Navbar />
-      <Navtab />
     </Box>
   );
 };

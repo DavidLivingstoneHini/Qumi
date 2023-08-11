@@ -4,6 +4,7 @@ import {
   IconButton,
   InputBase,
   Typography,
+  Avatar,
   Select,
   MenuItem,
   FormControl,
@@ -12,11 +13,8 @@ import {
 } from "@mui/material";
 import {
   // Search,
-  Message,
   DarkMode,
   LightMode,
-  Notifications,
-  Help,
   Menu,
   Close,
 } from "@mui/icons-material";
@@ -24,6 +22,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
+import "styles.css";
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -40,6 +41,7 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   const firstName = `${user.firstName}`;
+  const picturePath = `${user.picturePath}`;
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -48,7 +50,7 @@ const Navbar = () => {
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
           color="primary"
-          onClick={() => navigate("/home")}
+          onClick={() => navigate("/qrcode")}
           sx={{
             "&:hover": {
               color: primaryLight,
@@ -58,6 +60,59 @@ const Navbar = () => {
         >
           QUMI
         </Typography>
+
+{/* <div className="" style={{display: "flex", marginLeft: "300px", marginTop: "70px", alignItems: "center", justifyContent: "space-between"}}>
+<FlexBetween gap="1.7rem">
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/qrcode")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Profile Gateway
+        </Typography>
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/responses")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Responses
+        </Typography>
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/settings")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Settings
+        </Typography>
+        </FlexBetween>
+        </div> */}
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
@@ -65,10 +120,6 @@ const Navbar = () => {
             // gap="3rem"
             // padding="0.1rem 1.5rem"
           >
-            {/* <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton> */}
           </FlexBetween>
         )}
       </FlexBetween>
@@ -76,6 +127,58 @@ const Navbar = () => {
       {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
+          <div className="" style={{display: "flex", marginRight: "160px", marginTop: "70px"}}>
+      <FlexBetween gap="1.7rem">
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/qrcode")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Profile Gateway
+        </Typography>
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/responses")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Responses
+        </Typography>
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/settings")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Settings
+        </Typography>
+        </FlexBetween>
+        </div>
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkMode sx={{ fontSize: "25px" }} />
@@ -86,17 +189,19 @@ const Navbar = () => {
           {/* <Message sx={{ fontSize: "25px" }} /> */}
           {/* <Notifications sx={{ fontSize: "25px" }} /> */}
           {/* <Help sx={{ fontSize: "25px" }} /> */}
+          <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginRight: "-38px", backgroundColor: neutralLight, padding: "6px", borderRadius: "10px"}}>
+          <div className="" style={{marginRight: "2px", borderStyle: "solid", borderWidth: "2px", borderRadius: "100px", borderColor: "white"}}><Avatar alt={firstName} src={picturePath} /></div>
           <FormControl variant="standard" value={firstName}>
             <Select
               value={firstName}
               sx={{
                 backgroundColor: neutralLight,
-                width: "150px",
+                width: "120px",
                 borderRadius: "0.25rem",
                 p: "0.25rem 1rem",
                 "& .MuiSvgIcon-root": {
                   pr: "0.25rem",
-                  width: "3rem",
+                  width: "5rem",
                 },
                 "& .MuiSelect-select:focus": {
                   backgroundColor: neutralLight,
@@ -110,6 +215,7 @@ const Navbar = () => {
               <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </Select>
           </FormControl>
+          </div>
         </FlexBetween>
       ) : (
         <IconButton
@@ -148,7 +254,7 @@ const Navbar = () => {
             alignItems="center"
             gap="3rem"
           >
-            <IconButton
+            {/* <IconButton
               onClick={() => dispatch(setMode())}
               sx={{ fontSize: "25px" }}
             >
@@ -160,7 +266,66 @@ const Navbar = () => {
             </IconButton>
             <Message sx={{ fontSize: "25px" }} />
             <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} />
+            <Help sx={{ fontSize: "25px" }} /> */}
+             <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/qrcode")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Profile Gateway
+        </Typography>
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/responses")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Responses
+        </Typography>
+        <Typography
+          fontWeight="medium"
+          fontSize="15px"
+          color="#19191a"
+          onClick={() => navigate("/settings")}
+          sx={{
+            "&:hover": {
+              color: "#61dafb",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textDecorationColor: "#61dafb"
+            },
+          }}
+        >
+          Settings
+        </Typography>
+        <IconButton
+              onClick={() => dispatch(setMode())}
+              sx={{ fontSize: "25px" }}
+            >
+              {theme.palette.mode === "dark" ? (
+                <DarkMode sx={{ fontSize: "25px" }} />
+              ) : (
+                <LightMode sx={{ color: dark, fontSize: "25px" }} />
+              )}
+            </IconButton>
+            <div className="" style={{}}><Avatar alt={firstName} src={picturePath} /></div>
             <FormControl variant="standard" value={firstName}>
               <Select
                 value={firstName}

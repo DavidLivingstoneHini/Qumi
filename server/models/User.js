@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema(
       min: 2,
       max: 50,
     },
-    lastName: {
+    contact: {
       type: String,
       required: true,
       min: 2,
@@ -34,7 +34,8 @@ const UserSchema = new mongoose.Schema(
       default: [],
     },
     location: String,
-    occupation: String,
+    uid: String,
+    site: String,
     viewedProfile: Number,
     impressions: Number,
   },

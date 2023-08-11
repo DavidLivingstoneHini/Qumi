@@ -5,13 +5,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import Switch from '@mui/material/Switch';
-// import { styled } from '@mui/material/styles';
+import { Box } from "@mui/material";
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import BluetoothIcon from '@mui/icons-material/Bluetooth';
+import Navbar from "scenes/navbar";
+import "styles.css";
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 export default function SwitchListSecondary() {
   const [checked, setChecked] = React.useState(['wifi']);
@@ -36,6 +38,9 @@ export default function SwitchListSecondary() {
   };
 
   return (
+    <Box>
+      <Navbar />
+      <div className='' style={{marginTop: "20px", padding: "18px"}}>
     <List
       sx={{ width: '100%', maxWidth: 1800, bgcolor: 'background.paper' }}
       subheader={<ListSubheader><b style={{fontSize: '18px'}}>Settings</b></ListSubheader>}
@@ -48,11 +53,11 @@ export default function SwitchListSecondary() {
        
       <hr style={{marginLeft: '0px', marginRight: '0px',  marginTop: '15px', color: 'grey'}} />
       
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
         >
           <Typography sx={{ width: '100%', flexShrink: 0 }}>Responses<br /><p style={{fontSize: '13px', marginLeft: '-1px', marginTop: '-2px', color: '#b3b4b5'}}>Have an account for your staff members in order to view customer data</p>
 </Typography>
@@ -96,14 +101,7 @@ export default function SwitchListSecondary() {
         <AccordionDetails>
           <ListItem>
         <ListItemText id="switch-list-label-confirm" primary="Thank you, your ticket number is:" />
-        <Switch
-          edge="end"
-          onChange={handleToggle('confirm')}
-          checked={checked.indexOf('confirm') !== -1}
-          inputProps={{
-            'aria-labelledby': 'switch-list-label-confirm',
-          }}
-        />
+        <p style={{fontSize: "15px", fontWeight: "medium", color: "blue"}}>89</p>
       </ListItem>
 
       <ListItem>
@@ -120,5 +118,7 @@ export default function SwitchListSecondary() {
         </AccordionDetails>
       </Accordion>
     </List>
+    </div>
+    </Box>
   );
 }

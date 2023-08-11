@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as React from 'react';
 import {
   Box,
   Button,
@@ -18,11 +19,10 @@ import FlexBetween from "components/FlexBetween";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
+  contact: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
   password: yup.string().required("required"),
   location: yup.string().required("required"),
-  occupation: yup.string().required("required"),
   picture: yup.string().required("required"),
 });
 
@@ -33,10 +33,15 @@ const loginSchema = yup.object().shape({
 
 const initialValuesRegister = {
   firstName: "",
-  lastName: "",
+  // lastName: "",
+  contact: "",
+  uid: "",
   email: "",
+  site: "",
   password: "",
   location: "",
+  // mode: "",
+  // businessType: "",
   occupation: "",
   picture: "",
 };
@@ -93,13 +98,19 @@ const Form = () => {
           token: loggedIn.token,
         })
       );
-      navigate("/home");
+      navigate("/qrcode");
     }
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
+  };
+
+  const [mode, setMode] = React.useState('');
+
+  const handleChange = (event) => {
+    setMode(event.target.value);
   };
 
   return (
@@ -145,12 +156,22 @@ const Form = () => {
                   label="Business Contact"
                   onBlur={handleBlur}
                   onChange={handleChange}
+                  value={values.contact}
+                  name="contact"
+                  error={Boolean(touched.contact) && Boolean(errors.contact)}
+                  helperText={touched.contact && errors.contact}
+                  sx={{ gridColumn: "span 2" }}
+                />
+                {/* <TextField
+                  label="Other Names(optional)"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
                   value={values.lastName}
                   name="lastName"
                   error={Boolean(touched.lastName) && Boolean(errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
                   sx={{ gridColumn: "span 2" }}
-                />
+                /> */}
                 <TextField
                   label="Business Address"
                   onBlur={handleBlur}
@@ -159,25 +180,61 @@ const Form = () => {
                   name="location"
                   error={Boolean(touched.location) && Boolean(errors.location)}
                   helperText={touched.location && errors.location}
-                  sx={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: "span 2" }}
                 />
                 <TextField
                   label="Unique Identifier"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.occupation}
-                  name="occupation"
+                  value={values.uid}
+                  name="uid"
                   error={
-                    Boolean(touched.occupation) && Boolean(errors.occupation)
+                    Boolean(touched.uid) && Boolean(errors.uid)
                   }
-                  helperText={touched.occupation && errors.occupation}
-                  sx={{ gridColumn: "span 4" }}
+                  helperText={touched.uid && errors.uid}
+                  sx={{ gridColumn: "span 2" }}
                 />
+                <TextField
+              label="Website(optional)"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.site}
+              name="site"
+              error={Boolean(touched.site) && Boolean(errors.site)}
+              helperText={touched.site && errors.site}
+              sx={{ gridColumn: "span 2" }}
+            />
+            {/* <InputLabel id="demo-simple-select-label">Type of Business</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={mode}
+          label="Type of Business"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+
+        <InputLabel id="demo-simple-select-label">Mode</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={mode}
+          label="Type of Business"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select> */}
+
                 <Box
-                  gridColumn="span 4"
+                  gridColumn="span 2"
                   border={`1px solid ${palette.neutral.medium}`}
                   borderRadius="5px"
-                  p="1rem"
+                  p="0.7rem"
                 >
                   <Dropzone
                     acceptedFiles=".jpg,.jpeg,.png"
@@ -190,7 +247,7 @@ const Form = () => {
                       <Box
                         {...getRootProps()}
                         border={`2px dashed ${palette.primary.main}`}
-                        p="1rem"
+                        p="0.7rem"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
                         <input {...getInputProps()} />
@@ -208,7 +265,6 @@ const Form = () => {
                 </Box>
               </>
             )}
-
             <TextField
               label="Email"
               onBlur={handleBlur}
