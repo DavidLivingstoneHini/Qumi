@@ -22,7 +22,7 @@ const EmpListing = () => {
     }
     const Removefunction = (id) => {
         if (window.confirm('Do you want to remove?')) {
-            fetch("http://localhost:3000/employee/" + id, {
+            fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee/" + id, {
                 method: "DELETE"
             }).then((res) => {
                 alert('Removed successfully.')
@@ -37,7 +37,7 @@ const EmpListing = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/employee").then((res) => {
+        fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee").then((res) => {
             return res.json();
         }).then((resp) => {
             empdatachange(resp);
