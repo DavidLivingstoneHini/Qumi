@@ -68,7 +68,7 @@ import {
                 }}
               />
             }
-            title={"Orders"}
+            title={" Total Number of Users"}
             value={orders}
           />
           <DashboardCard
@@ -83,7 +83,7 @@ import {
                 }}
               />
             }
-            title={"Inventory"}
+            title={"Active Customers"}
             value={inventory}
           />
           <DashboardCard
@@ -98,23 +98,8 @@ import {
                 }}
               />
             }
-            title={"Customer"}
+            title={"Current Users in Queue"}
             value={customers}
-          />
-          <DashboardCard
-            icon={
-              <DollarCircleOutlined
-                style={{
-                  color: "red",
-                  backgroundColor: "rgba(255,0,0,0.25)",
-                  borderRadius: 20,
-                  fontSize: 24,
-                  padding: 8,
-                }}
-              />
-            }
-            title={"Revenue"}
-            value={revenue}
           />
         </Space>
         <Space>
@@ -151,20 +136,20 @@ import {
   
     return (
       <>
-        <Typography.Text>Recent Orders</Typography.Text>
+        <Typography.Text>Recent Additions to Queue</Typography.Text>
         <Table
           columns={[
             {
-              title: "Title",
-              dataIndex: "title",
+              title: "Name",
+              dataIndex: "name",
             },
             {
-              title: "Quantity",
-              dataIndex: "quantity",
+              title: "Phone Number",
+              dataIndex: "phone",
             },
             {
-              title: "Price",
-              dataIndex: "discountedPrice",
+              title: "Email",
+              dataIndex: "demail",
             },
           ]}
           loading={loading}
@@ -194,7 +179,7 @@ import {
           labels,
           datasets: [
             {
-              label: "Revenue",
+              label: "Queue Position",
               data: data,
               backgroundColor: "rgba(255, 0, 0, 1)",
             },
@@ -213,7 +198,7 @@ import {
         },
         title: {
           display: true,
-          text: "Order Revenue",
+          text: "Queue Position",
         },
       },
     };

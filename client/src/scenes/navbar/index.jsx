@@ -90,6 +90,7 @@ const Navbar = () => {
               textDecorationColor: "#61dafb"
             },
           }}
+          activeStyle={{color: "red"}}
         >
           Profile Gateway
         </Typography>
