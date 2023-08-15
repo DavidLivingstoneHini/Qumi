@@ -68,7 +68,7 @@ import {
                 }}
               />
             }
-            title={" Total Number of Users"}
+            title={" Total Users"}
             value={orders}
           />
           <DashboardCard
