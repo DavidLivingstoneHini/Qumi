@@ -162,16 +162,6 @@ const Form = () => {
                   helperText={touched.contact && errors.contact}
                   sx={{ gridColumn: "span 2" }}
                 />
-                {/* <TextField
-                  label="Other Names(optional)"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.lastName}
-                  name="lastName"
-                  error={Boolean(touched.lastName) && Boolean(errors.lastName)}
-                  helperText={touched.lastName && errors.lastName}
-                  sx={{ gridColumn: "span 2" }}
-                /> */}
                 <TextField
                   label="Business Address"
                   onBlur={handleBlur}

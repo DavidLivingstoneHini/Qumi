@@ -7,6 +7,7 @@ import { setMode, setLogout } from "state";
 import "styles.css";
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "scenes/navbar";
+import Footer from "scenes/footer";
 
 const QrCode = () => {
   // const [url, setUrl] = useState("");
@@ -73,6 +74,7 @@ const QrCode = () => {
       </div> */}
     </div>
     </Box>
+    <Footer />
     </Box>
   );
 };

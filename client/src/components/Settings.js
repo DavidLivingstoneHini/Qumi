@@ -12,6 +12,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from "scenes/navbar";
+import Footer from "scenes/footer";
 import "styles.css";
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -119,6 +120,7 @@ export default function SwitchListSecondary() {
       </Accordion>
     </List>
     </div>
+    <Footer />
     </Box>
   );
 }

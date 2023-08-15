@@ -17,10 +17,7 @@ const EmpDetail = () => {
     }, []);
     return (
         <div>
-            {/* <div className="row">
-                <div className="offset-lg-3 col-lg-6"> */}
-
-               <div className="container" style={{justifyContent: "center", alignItems: "center", marginTop: "35px"}}>
+            <div className="container" style={{justifyContent: "center", alignItems: "center", marginTop: "35px"}}>
                 
             <div className="card row" style={{ "textAlign": "left" }}>
                 <div className="card-title">

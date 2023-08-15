@@ -1,12 +1,13 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import './App.css';
 import EmpListing from './EmpListing';
+import EmpSummary from './EmpSummary';
 import EmpCreate from './EmpCreate';
 import EmpDetail from './EmpDetail';
 import EmpEdit from './EmpEdit';
 import HomePage from "scenes/homePage";
+import Navtab from "scenes/navtab";
 import LoginPage from "scenes/loginPage";
-import ProfilePage from "scenes/profilePage";
 import QrCode from "components/QrCode";
 import Settings from "components/Settings";
 import { useMemo } from "react";
@@ -35,14 +36,12 @@ function App() {
             path="/responses"
             element={isAuth ? <EmpListing /> : <Navigate to="/" />}
           /> */}
+          <Route path='/analytics' element={<Navtab />}></Route>
           <Route path='/responses' element={<EmpListing />}></Route>
+          <Route path='/summary' element={<EmpSummary />}></Route>
           <Route
               path="/settings"
               element={isAuth ? <Settings /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/profile/:userId"
-              element={isAuth ? <ProfilePage /> : <Navigate to="/" />}
             />
           <Route path='/responses/employee/create' element={<EmpCreate />}></Route>
           <Route path='/responses/employee/detail/:empid' element={<EmpDetail />}></Route>

@@ -61,58 +61,6 @@ const Navbar = () => {
           QUMI
         </Typography>
 
-{/* <div className="" style={{display: "flex", marginLeft: "300px", marginTop: "70px", alignItems: "center", justifyContent: "space-between"}}>
-<FlexBetween gap="1.7rem">
-        <Typography
-          fontWeight="medium"
-          fontSize="15px"
-          color="#19191a"
-          onClick={() => navigate("/qrcode")}
-          sx={{
-            "&:hover": {
-              color: "#61dafb",
-              cursor: "pointer",
-              textDecoration: "underline",
-              textDecorationColor: "#61dafb"
-            },
-          }}
-        >
-          Profile Gateway
-        </Typography>
-        <Typography
-          fontWeight="medium"
-          fontSize="15px"
-          color="#19191a"
-          onClick={() => navigate("/responses")}
-          sx={{
-            "&:hover": {
-              color: "#61dafb",
-              cursor: "pointer",
-              textDecoration: "underline",
-              textDecorationColor: "#61dafb"
-            },
-          }}
-        >
-          Responses
-        </Typography>
-        <Typography
-          fontWeight="medium"
-          fontSize="15px"
-          color="#19191a"
-          onClick={() => navigate("/settings")}
-          sx={{
-            "&:hover": {
-              color: "#61dafb",
-              cursor: "pointer",
-              textDecoration: "underline",
-              textDecorationColor: "#61dafb"
-            },
-          }}
-        >
-          Settings
-        </Typography>
-        </FlexBetween>
-        </div> */}
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
@@ -127,7 +75,7 @@ const Navbar = () => {
       {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
-          <div className="" style={{display: "flex", marginRight: "160px", marginTop: "70px"}}>
+          <div className="" style={{display: "flex", marginRight: "230px", marginTop: "70px"}}>
       <FlexBetween gap="1.7rem">
         <Typography
           fontWeight="medium"
@@ -149,7 +97,7 @@ const Navbar = () => {
           fontWeight="medium"
           fontSize="15px"
           color="#19191a"
-          onClick={() => navigate("/responses")}
+          onClick={() => navigate("/summary")}
           sx={{
             "&:hover": {
               color: "#61dafb",
@@ -179,16 +127,6 @@ const Navbar = () => {
         </Typography>
         </FlexBetween>
         </div>
-          <IconButton onClick={() => dispatch(setMode())}>
-            {theme.palette.mode === "dark" ? (
-              <DarkMode sx={{ fontSize: "25px" }} />
-            ) : (
-              <LightMode sx={{ color: dark, fontSize: "25px" }} />
-            )}
-          </IconButton>
-          {/* <Message sx={{ fontSize: "25px" }} /> */}
-          {/* <Notifications sx={{ fontSize: "25px" }} /> */}
-          {/* <Help sx={{ fontSize: "25px" }} /> */}
           <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginRight: "-38px", backgroundColor: neutralLight, padding: "6px", borderRadius: "10px"}}>
           <div className="" style={{marginRight: "2px", borderStyle: "solid", borderWidth: "2px", borderRadius: "100px", borderColor: "white"}}><Avatar alt={firstName} src={picturePath} /></div>
           <FormControl variant="standard" value={firstName}>
@@ -254,19 +192,6 @@ const Navbar = () => {
             alignItems="center"
             gap="3rem"
           >
-            {/* <IconButton
-              onClick={() => dispatch(setMode())}
-              sx={{ fontSize: "25px" }}
-            >
-              {theme.palette.mode === "dark" ? (
-                <DarkMode sx={{ fontSize: "25px" }} />
-              ) : (
-                <LightMode sx={{ color: dark, fontSize: "25px" }} />
-              )}
-            </IconButton>
-            <Message sx={{ fontSize: "25px" }} />
-            <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} /> */}
              <Typography
           fontWeight="medium"
           fontSize="15px"
@@ -287,7 +212,7 @@ const Navbar = () => {
           fontWeight="medium"
           fontSize="15px"
           color="#19191a"
-          onClick={() => navigate("/responses")}
+          onClick={() => navigate("/analytics")}
           sx={{
             "&:hover": {
               color: "#61dafb",
@@ -297,7 +222,7 @@ const Navbar = () => {
             },
           }}
         >
-          Responses
+          All Responses
         </Typography>
         <Typography
           fontWeight="medium"
@@ -315,16 +240,6 @@ const Navbar = () => {
         >
           Settings
         </Typography>
-        <IconButton
-              onClick={() => dispatch(setMode())}
-              sx={{ fontSize: "25px" }}
-            >
-              {theme.palette.mode === "dark" ? (
-                <DarkMode sx={{ fontSize: "25px" }} />
-              ) : (
-                <LightMode sx={{ color: dark, fontSize: "25px" }} />
-              )}
-            </IconButton>
             <div className="" style={{}}><Avatar alt={firstName} src={picturePath} /></div>
             <FormControl variant="standard" value={firstName}>
               <Select

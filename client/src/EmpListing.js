@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, IconButton } from "@mui/material";
-import Navbar from "scenes/navbar";
+import Navtab from "scenes/navtab";
+import Footer from "scenes/footer";
 import "styles.css";
 import {
     Edit,
@@ -47,7 +48,7 @@ const EmpListing = () => {
     }, [])
     return (
         <Box>
-            <Navbar />
+            <Navtab />
         <div className="container" style={{marginTop: "35px"}}>
             <div className="card">
                 <div className="card-title" style={{marginLeft: "18px", marginTop: "15px" }}>
@@ -95,13 +96,12 @@ const EmpListing = () => {
                                     </tr>
                                 ))
                             }
-
                         </tbody>
-
                     </table>
                 </div>
             </div>
         </div>
+        {/* <Footer /> */}
         </Box>
     );
 }
