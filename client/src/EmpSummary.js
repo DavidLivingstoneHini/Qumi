@@ -205,7 +205,7 @@ import {
   
     return (
       <Card style={{ width: 500, height: 250 }}>
-        <Bar options={options} data={} />
+        <Bar options={options} data={reveneuData} />
       </Card>
     );
   }
