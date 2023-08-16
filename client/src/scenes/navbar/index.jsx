@@ -241,7 +241,6 @@ const Navbar = () => {
         >
           Settings
         </Typography>
-            <div className="" style={{}}><Avatar alt={firstName} src={picturePath} /></div>
             <FormControl variant="standard" value={firstName}>
               <Select
                 value={firstName}
