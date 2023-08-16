@@ -30,7 +30,7 @@ const QrCode = () => {
       <div className="" style={{marginTop: '-18px', borderStyle: "solid", borderWidth: "3px", borderRadius: "100px", borderColor: "white"}}><Avatar alt={firstName} src={picturePath} /></div>
       <p><b>{firstName}</b></p>
       <p>Your Query Link</p><br />
-      <QRCode value="https://mern-social-xi.vercel.app/responses/employee/create" />
+      <QRCode value="https://qumi.vercel.app/responses/employee/create" />
     </div>
     </Box>
     )}
