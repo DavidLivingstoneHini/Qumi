@@ -6,8 +6,10 @@ import Footer from "scenes/footer";
 import "styles.css";
 import {
     Edit,
-    Delete,
+    Cancel,
     Info,
+    SkipNext,
+    MoveUp,
   } from "@mui/icons-material";
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,9 +23,16 @@ const EmpListing = () => {
     const LoadEdit = (id) => {
         navigate("/responses/employee/edit/" + id);
     }
+    const Pushfunction = (id) => {
+        let myData = empdata; 
+        const parsed = JSON.parse(myData); 
+        parsed.push(3); 
+        myData = JSON.stringify(parsed); 
+        console.log(myData);
+    }
     const Removefunction = (id) => {
         if (window.confirm('Do you want to remove?')) {
-            fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee/" + id, {
+            fetch("https://test-api-dpqa.onrender.com/employee/" + id, {
                 method: "DELETE"
             }).then((res) => {
                 alert('Removed successfully.')
@@ -65,7 +74,7 @@ const EmpListing = () => {
                                 <td>Customer Name</td>
                                 <td>Customer ID</td>
                                 <td>Phone Number</td>
-                                <td>Action</td>
+                                <td>Actions</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,17 +90,26 @@ const EmpListing = () => {
                                             {/* <a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>
                                             <a onClick={() => { Removefunction(item.id) }} className="btn btn-danger">Remove</a>
                                             <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a> */}
-                                            <IconButton onClick={() => { LoadEdit(item.id) }}>
-                                               <Edit sx={{ fontSize: "25px" }} />
+
+                                            <IconButton onClick={() => { Removefunction(item.id) }}>
+                                               <Cancel sx={{ fontSize: "25px", color: "#bf0a28" }} />
                                             </IconButton>
 
                                             <IconButton onClick={() => { Removefunction(item.id) }}>
-                                               <Delete sx={{ fontSize: "25px" }} />
+                                               <SkipNext sx={{ fontSize: "25px", color: "#0a4fbf" }} />
                                             </IconButton>
 
-                                            <IconButton onClick={() => { LoadDetail(item.id) }}>
-                                               <Info sx={{ fontSize: "25px" }} />
+                                            <IconButton onClick={() => { Pushfunction(item.id) }}>
+                                               <MoveUp sx={{ fontSize: "25px", color: "#9e0abf" }} />
                                             </IconButton>
+
+                                            <IconButton onClick={() => { LoadEdit(item.id) }}>
+                                               <Edit sx={{ fontSize: "22px", color: "#42248a" }} />
+                                            </IconButton>
+
+                                            {/* <IconButton onClick={() => { LoadDetail(item.id) }}>
+                                               <Info sx={{ fontSize: "25px" }} />
+                                            </IconButton> */}
                                         </td>
                                     </tr>
                                 ))

@@ -9,6 +9,7 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.11",
     "@mui/x-data-grid": "^6.10.1",
+    "@nivo/pie": "^0.83.0",
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",

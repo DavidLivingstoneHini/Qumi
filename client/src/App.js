@@ -6,6 +6,7 @@ import EmpCreate from './EmpCreate';
 import EmpDetail from './EmpDetail';
 import EmpEdit from './EmpEdit';
 import HomePage from "scenes/homePage";
+import Breakdown from "scenes/breakdown";
 import Navtab from "scenes/navtab";
 import LoginPage from "scenes/loginPage";
 import QrCode from "components/QrCode";
@@ -39,6 +40,7 @@ function App() {
           <Route path='/analytics' element={<Navtab />}></Route>
           <Route path='/responses' element={<EmpListing />}></Route>
           <Route path='/summary' element={<EmpSummary />}></Route>
+          <Route path='/breakdown' element={<Breakdown />}></Route>
           <Route
               path="/settings"
               element={isAuth ? <Settings /> : <Navigate to="/" />}

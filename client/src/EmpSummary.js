@@ -1,7 +1,6 @@
 import {
-    DollarCircleOutlined,
-    ShoppingCartOutlined,
-    ShoppingOutlined,
+    UserSwitchOutlined,
+    HeartOutlined,
     UserOutlined,
   } from "@ant-design/icons";
   import { Box } from "@mui/material";
@@ -58,7 +57,7 @@ import {
         <Space direction="horizontal" style={{justifyContent: "center", alignItems: "center", marginTop: "2px"}}>
           <DashboardCard
             icon={
-              <ShoppingCartOutlined
+              <UserOutlined
                 style={{
                   color: "green",
                   backgroundColor: "rgba(0,255,0,0.25)",
@@ -73,7 +72,7 @@ import {
           />
           <DashboardCard
             icon={
-              <ShoppingOutlined
+              <HeartOutlined
                 style={{
                   color: "blue",
                   backgroundColor: "rgba(0,0,255,0.25)",
@@ -88,7 +87,7 @@ import {
           />
           <DashboardCard
             icon={
-              <UserOutlined
+              <UserSwitchOutlined
                 style={{
                   color: "purple",
                   backgroundColor: "rgba(0,255,255,0.25)",

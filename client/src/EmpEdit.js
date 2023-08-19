@@ -7,7 +7,7 @@ const EmpEdit = () => {
     //const [empdata, empdatachange] = useState({});
 
     useEffect(() => {
-        fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee/" + empid).then((res) => {
+        fetch("https://test-api-dpqa.onrender.com/employee/" + empid).then((res) => {
             return res.json();
         }).then((resp) => {
             idchange(resp.id);
@@ -35,7 +35,7 @@ const EmpEdit = () => {
       const empdata={id,name,email,phone,active};
       
 
-      fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee/"+empid,{
+      fetch("https://test-api-dpqa.onrender.com/employee/"+empid,{
         method:"PUT",
         headers:{"content-type":"application/json"},
         body:JSON.stringify(empdata)

@@ -18,7 +18,7 @@ const EmpCreate = () => {
       const empdata={name,email,phone,active};
       
 
-      fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee",{
+      fetch("https://test-api-dpqa.onrender.com/employee",{
         method:"POST",
         headers:{"content-type":"application/json"},
         body:JSON.stringify(empdata)
