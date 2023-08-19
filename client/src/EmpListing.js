@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, IconButton } from "@mui/material";
 import Navtab from "scenes/navtab";
-import Footer from "scenes/footer";
 import "styles.css";
 import {
     Edit,
@@ -47,7 +46,7 @@ const EmpListing = () => {
 
 
     useEffect(() => {
-        fetch("https://my-json-server.typicode.com/DavidLivingstoneHini/mern-social-jsonserver/employee").then((res) => {
+        fetch("https://test-api-dpqa.onrender.com/employee").then((res) => {
             return res.json();
         }).then((resp) => {
             empdatachange(resp);
@@ -107,9 +106,9 @@ const EmpListing = () => {
                                                <Edit sx={{ fontSize: "22px", color: "#42248a" }} />
                                             </IconButton>
 
-                                            {/* <IconButton onClick={() => { LoadDetail(item.id) }}>
+                                             <IconButton onClick={() => { LoadDetail(item.id) }}>
                                                <Info sx={{ fontSize: "25px" }} />
-                                            </IconButton> */}
+                                            </IconButton>
                                         </td>
                                     </tr>
                                 ))
