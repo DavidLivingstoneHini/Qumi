@@ -24,7 +24,6 @@ const EmpCreate = () => {
         body:JSON.stringify(empdata)
       }).then((res)=>{
         alert('Saved successfully.')
-        navigate('/responses');
       }).catch((err)=>{
         console.log(err.message)
       })
