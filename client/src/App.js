@@ -33,10 +33,10 @@ function App() {
               path="/qrcode"
               element={isAuth ? <QrCode /> : <Navigate to="/" />}
             />
-            {/* <Route
+            <Route
             path="/responses"
             element={isAuth ? <EmpListing /> : <Navigate to="/" />}
-          /> */}
+          />
           <Route path='/analytics' element={<Navtab />}></Route>
           <Route path='/summary' element={<EmpSummary />}></Route>
           <Route path='/breakdown' element={<Breakdown />}></Route>
@@ -46,10 +46,6 @@ function App() {
             />
           <Route path='/responses/employee/create' element={<EmpCreate />}></Route>
           <Route path='/responses/employee/detail/:empid' element={<EmpDetail />}></Route>
-                <Route
-              path="/responses"
-              element={isAuth ? <Emplisting /> : <Navigate to="/" />}
-            />
           <Route path='/responses/employee/edit/:empid' element={<EmpEdit />}></Route>
           {/* <Route path='/responses/employee/detail/:empid'
           element={isAuth ? <EmpDetail /> : <Navigate to="/" />} />
