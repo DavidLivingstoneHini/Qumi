@@ -113,6 +113,10 @@ const Form = () => {
     setMode(event.target.value);
   };
 
+  const [business, businesschange] = useState("transportaion");
+  const [model, modelchange] = useState("virtual queue");
+
+
   return (
     <Formik
       onSubmit={handleFormSubmit}
@@ -172,6 +176,21 @@ const Form = () => {
                   helperText={touched.location && errors.location}
                   sx={{ gridColumn: "span 2" }}
                 />
+                                    <div className="form-group" style={{ gridColumn: "span 2"}}>
+                                        <label>Type of Business <span className="errmsg">*</span></label>
+                                        <select value={business} onChange={e => businesschange(e.target.value)} className="form-control">
+                                            <option value="transportation">Transportation</option>
+                                            <option value="finance & insurance">Finance & Insurance</option>
+                                            <option value="healthcare">Healthcare</option>
+                                            <option value="food & services">Food & Services</option>
+                                            <option value="education">Education</option>
+                                            <option value="emtertainment & recreation">Entertainment & Recreation</option>
+                                            <option value="utilities">Utilities</option>
+                                            <option value="telecommunication">Telecommunication</option>
+                                            <option value="government institutions">Government Institutions</option>
+                                            <option value="other services">Other Services</option>
+                                        </select>
+                                    </div>
                 <TextField
                   label="Unique Identifier"
                   onBlur={handleBlur}
@@ -184,6 +203,13 @@ const Form = () => {
                   helperText={touched.uid && errors.uid}
                   sx={{ gridColumn: "span 2" }}
                 />
+                <div className="form-group" style={{ gridColumn: "span 2"}}>
+                                        <label>Mode <span className="errmsg">*</span></label>
+                                        <select value={model} onChange={e => modelchange(e.target.value)} className="form-control">
+                                            <option value="virtual queue">Virtual Queue</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
                 <TextField
               label="Website(optional)"
               onBlur={handleBlur}
