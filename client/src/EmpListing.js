@@ -41,6 +41,18 @@ const EmpListing = () => {
             })
         }
     }
+    const Skipfunction = (id) => {
+        if (window.confirm('Do you want to skip this user?')) {
+            fetch("https://test-api-dpqa.onrender.com/employee/" + id, {
+                method: "DELETE"
+            }).then((res) => {
+                alert('Skipped successfully.')
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err.message)
+            })
+        }
+    }
 
 
 
@@ -94,7 +106,7 @@ const EmpListing = () => {
                                                <Cancel sx={{ fontSize: "25px", color: "#bf0a28" }} />
                                             </IconButton>
 
-                                            <IconButton onClick={() => { Removefunction(item.id) }}>
+                                            <IconButton onClick={() => { Skipfunction(item.id) }}>
                                                <SkipNext sx={{ fontSize: "25px", color: "#0a4fbf" }} />
                                             </IconButton>
 
