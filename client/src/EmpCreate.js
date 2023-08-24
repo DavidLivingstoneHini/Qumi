@@ -23,7 +23,8 @@ const EmpCreate = () => {
         headers:{"content-type":"application/json"},
         body:JSON.stringify(empdata)
       }).then((res)=>{
-        alert('Saved successfully.')
+        alert('Joined successfully.')
+        navigate('/');
       }).catch((err)=>{
         console.log(err.message)
       })
