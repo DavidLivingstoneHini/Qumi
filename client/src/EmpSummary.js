@@ -102,7 +102,6 @@ import {
           />
         </Space>
         <Space>
-          <RecentOrders />
           <DashboardChart />
         </Space>
       </Space>
@@ -121,43 +120,43 @@ import {
       </Card>
     );
   }
-  function RecentOrders() {
-    const [dataSource, setDataSource] = useState([]);
-    const [loading, setLoading] = useState(false);
+  // function RecentOrders() {
+  //   const [dataSource, setDataSource] = useState([]);
+  //   const [loading, setLoading] = useState(false);
   
-    useEffect(() => {
-      setLoading(true);
-      getOrders().then((res) => {
-        setDataSource(res.products.splice(0, 3));
-        setLoading(false);
-      });
-    }, []);
+  //   useEffect(() => {
+  //     setLoading(true);
+  //     getOrders().then((res) => {
+  //       setDataSource(res.products.splice(0, 3));
+  //       setLoading(false);
+  //     });
+  //   }, []);
   
-    return (
-      <>
-        <Typography.Text>Recent Additions to Queue</Typography.Text>
-        <Table
-          columns={[
-            {
-              title: "Name",
-              dataIndex: "name",
-            },
-            {
-              title: "Phone Number",
-              dataIndex: "phone",
-            },
-            {
-              title: "Email",
-              dataIndex: "demail",
-            },
-          ]}
-          loading={loading}
-          dataSource={dataSource}
-          pagination={false}
-        ></Table>
-      </>
-    );
-  }
+  //   return (
+  //     <>
+  //       <Typography.Text>Recent Additions to Queue</Typography.Text>
+  //       <Table
+  //         columns={[
+  //           {
+  //             title: "Name",
+  //             dataIndex: "name",
+  //           },
+  //           {
+  //             title: "Phone Number",
+  //             dataIndex: "phone",
+  //           },
+  //           {
+  //             title: "Email",
+  //             dataIndex: "demail",
+  //           },
+  //         ]}
+  //         loading={loading}
+  //         dataSource={dataSource}
+  //         pagination={false}
+  //       ></Table>
+  //     </>
+  //   );
+  // }
   
   function DashboardChart() {
     const [reveneuData, setReveneuData] = useState({
@@ -202,10 +201,10 @@ import {
       },
     };
   
-    return (
+     return (
       <Card style={{ width: 500, height: 250 }}>
-        <Bar options={options} data={reveneuData} />
-      </Card>
-    );
+       <Bar options={options} data={reveneuData} />
+     </Card>
+     );
   }
   export default EmpSummary;
