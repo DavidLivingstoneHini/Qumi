@@ -30,11 +30,11 @@ const EmpListing = () => {
         console.log(myData);
     }
     const Removefunction = (id) => {
-        if (window.confirm('Do you want to remove?')) {
+        if (window.confirm('Do you want to cancel user?')) {
             fetch("https://test-api-dpqa.onrender.com/employee/" + id, {
                 method: "DELETE"
             }).then((res) => {
-                alert('Removed successfully.')
+                alert('Cancelled successfully.')
                 window.location.reload();
             }).catch((err) => {
                 console.log(err.message)
