@@ -23,18 +23,23 @@ const EmpListing = () => {
         navigate("/responses/employee/edit/" + id);
     }
     const Pushfunction = (id) => {
-        let myData = empdata; 
-        const parsed = JSON.parse(myData); 
-        parsed.push(3); 
-        myData = JSON.stringify(parsed); 
-        console.log(myData);
+        if (window.confirm('Do you want to push user to the back?')) {
+            fetch("https://test-api-dpqa.onrender.com/employee/" + id, {
+                method: ""
+            }).then((res) => {
+                alert('Pushed successfully.')
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err.message)
+            })
+        }
     }
     const Removefunction = (id) => {
-        if (window.confirm('Do you want to remove?')) {
+        if (window.confirm('Do you want to cancel user?')) {
             fetch("https://test-api-dpqa.onrender.com/employee/" + id, {
                 method: "DELETE"
             }).then((res) => {
-                alert('Removed successfully.')
+                alert('Cancelled successfully.')
                 window.location.reload();
             }).catch((err) => {
                 console.log(err.message)
