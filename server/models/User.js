@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+//import image schema
+// require("./imagesDetails");
+// const Images = mongoose.model("imagesDetails");
+
+
 const UserSchema = new mongoose.Schema(
   {
     firstName: {
@@ -58,4 +63,6 @@ const UserSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model("User", UserSchema);
+
+
 export default User;
